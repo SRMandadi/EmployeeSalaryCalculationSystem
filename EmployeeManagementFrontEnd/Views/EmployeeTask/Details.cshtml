@@ -1,0 +1,52 @@
+﻿@model EmployeeSalaryCalculationSystem.MVC.ViewModels.EmployeeTasksViewModel
+
+@{
+    ViewData["Title"] = "Employee Task Details";
+}
+<div>
+    <h1>Employee Task</h1>
+    <h4>Employee Task Details</h4>
+    <hr />
+    <div class="row">
+        <br />
+        <div class="col-md-6"></div>
+        <div class="col-md-6 footer-buttons">
+            <a asp-action="Index" class="btn btn-outline-default float-right">Back to List</a><span>&nbsp; &nbsp;</span>
+            <a asp-action="Edit" asp-controller="EmployeeTask" asp-route-id="@Model.EmployeeTaskId" style="margin-right: 5px;" class="btn btn-warning float-right">Edit</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"></label>
+                <input asp-for="EmployeeName" class="form-control" readonly />
+                @*<select asp-for="EmployeeId" asp-items="@(new SelectList(Model.EmployeeList,"EmployeeId", "FirstName"))" class="custom-select mr-sm-2">
+                    <option value="">Please Select</option>
+                </select>
+                <span asp-validation-for="Employee.EmployeeId" class="text-danger"></span>*@
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="TaskName" class="control-label"></label>
+                <input asp-for="TaskName" class="form-control" readonly />
+                @*<select asp-for="TaskId" asp-items="@(new SelectList(Model.WorkItemList,"TaskId", "Name"))" class="custom-select mr-sm-2">
+                    <option value="">Please Select</option>
+                </select>
+                <span asp-validation-for="Task.TaskId" class="text-danger"></span>*@
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="TotalNoOfHours" class="control-label"></label>
+                <input asp-for="TotalNoOfHours" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <input asp-for="Priority" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+</div>

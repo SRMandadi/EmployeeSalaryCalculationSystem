@@ -1,0 +1,69 @@
+﻿@model EmployeeSalaryCalculationSystem.MVC.ViewModels.EmployeeTasksViewModel
+
+@{
+    ViewData["Title"] = "Assgin Task";
+}
+
+<h1>Assgin Task</h1>
+
+<hr />
+
+<form asp-action="Create">
+    <div class="row">
+        <br />
+        <div class="col-md-6"></div>
+        <div class="col-md-6 footer-buttons">
+            <a asp-action="Index" class="btn btn-outline-default float-right">Back to List</a>
+            <span>&nbsp; &nbsp;</span>
+            <input type="submit" value="Save" style="margin-right: 5px;" class="btn btn-success float-right" />
+        </div>
+    </div>
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"></label>
+                <span class="text-danger">*</span>
+                <select asp-for="EmployeeId" asp-items="@(new SelectList(Model.Employees,"EmployeeId", "FirstName"))" class="custom-select mr-sm-2">
+                    <option value="">Please Select</option>
+                </select>
+                <span asp-validation-for="Employee.EmployeeId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="TaskName" class="control-label"></label>
+                <span class="text-danger">*</span>
+                <select asp-for="TaskId" asp-items="@(new SelectList(Model.WorkItems,"TaskId", "Name"))" class="custom-select mr-sm-2">
+                    <option value="">Please Select</option>
+                </select>
+                <span asp-validation-for="Task.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="TotalNoOfHours" class="control-label"></label>
+                <span class="text-danger">*</span>
+                <input asp-for="TotalNoOfHours" class="form-control" />
+                <span asp-validation-for="TotalNoOfHours" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                @*<input asp-for="Priority" class="form-control" />*@
+            <select asp-for="Priority" class="form-control">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

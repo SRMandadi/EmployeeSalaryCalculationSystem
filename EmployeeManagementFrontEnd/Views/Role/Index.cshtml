@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EmployeeSalaryCalculationSystem.MVC.ViewModels.RoleViewModel>
+
+@{
+    ViewData["Title"] = "Roles List";
+}
+
+<h1>Role Details</h1>
+
+<p id='btnAdd'>
+    <a asp-action="Create" class="btn btn-primary">Add New Role</a>
+</p>
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RatePerhour)
+            </th>
+            <th align="center">
+                @Html.DisplayName("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderBy(x => x.RoleName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RatePerhour)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Role" asp-route-id="@item.RoleId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-controller="Role" asp-route-id="@item.RoleId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-controller="Role" asp-route-id="@item.RoleId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

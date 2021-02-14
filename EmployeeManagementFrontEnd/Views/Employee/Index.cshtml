@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EmployeeSalaryCalculationSystem.MVC.ViewModels.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Employees List";
+}
+
+<h1>Employee Details</h1>
+<br />
+
+<p id='btnAdd'>
+    <a asp-action="Create" class="btn btn-primary">Add New Empolyee</a>
+</p>
+
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayName("Role")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayName("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderBy(x => x.FullName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeRoleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Employee" asp-route-id="@item.EmployeeId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-controller="Employee" asp-route-id="@item.EmployeeId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.EmployeeId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

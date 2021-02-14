@@ -1,0 +1,56 @@
+﻿@model EmployeeSalaryCalculationSystem.MVC.ViewModels.WorkItemViewModel
+
+@{
+    ViewData["Title"] = "Add Task";
+}
+
+<h1>Task</h1>
+<h4>Add Task</h4>
+<hr />
+
+<form asp-action="Create">
+    <div class="row">
+        <br />
+        <div class="col-md-6"></div>
+        <div class="col-md-6 footer-buttons">
+            <a asp-action="Index" class="btn btn-outline-default float-right">Back to List</a><span>&nbsp; &nbsp;</span>
+            <input type="submit" value="Save" style="margin-right: 5px;" class="btn btn-success float-right" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <span class="text-danger">*</span>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="NoOfHours" class="control-label"></label>
+                <span class="text-danger">*</span>
+                <input asp-for="NoOfHours" class="form-control" />
+                <span asp-validation-for="NoOfHours" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="IsCompleted" class="control-label"></label>
+                <select asp-for="IsCompleted" class="form-control">
+                    <option selected="selected" value="">Please select</option>
+                    <option value="true">Completed</option>
+                    <option value="false">Not Completed</option>
+                </select>
+                <span asp-validation-for="IsCompleted" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

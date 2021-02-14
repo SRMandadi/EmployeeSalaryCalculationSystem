@@ -1,0 +1,70 @@
+﻿@model EmployeeSalaryCalculationSystem.MVC.ViewModels.EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h1>Employee</h1>
+    <h4>Employee Details</h4>
+    <hr />
+    <div class="row">
+        <br />
+        <div class="col-md-6"></div>
+        <div class="col-md-6 footer-buttons">
+            <a asp-action="Index" class="btn btn-outline-default float-right">Back to List</a><span>&nbsp; &nbsp;</span>
+            <a asp-action="Edit" asp-controller="Employee" asp-route-id="@Model.EmployeeId" style="margin-right: 5px;" class="btn btn-warning float-right">Edit</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="MiddleName" class="control-label"></label>
+                <input asp-for="MiddleName" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="MobileNo" class="control-label"></label>
+                <input asp-for="MobileNo" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="PhysicalAddress" class="control-label"></label>
+                <input asp-for="PhysicalAddress" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="AccessCode" class="control-label"></label>
+                <input asp-for="AccessCode" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="EmployeeCode" class="control-label"></label>
+                <input asp-for="EmployeeCode" class="form-control" readonly="@(true)" />
+            </div>
+        </div>
+    </div>
+</div>

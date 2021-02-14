@@ -1,0 +1,38 @@
+﻿@model EmployeeSalaryCalculationSystem.MVC.ViewModels.WorkItemViewModel
+
+@{
+    ViewData["Title"] = "Task Details";
+}
+<div>
+    <h1>Task</h1>
+    <h4>Task Details</h4>
+    <hr />
+    <div class="row">
+        <br />
+        <div class="col-md-6"></div>
+        <div class="col-md-6 footer-buttons">
+            <a asp-action="Index" class="btn btn-outline-default float-right">Back to List</a><span>&nbsp; &nbsp;</span>
+            <a asp-action="Edit" asp-controller="WorkItem" asp-route-id="@Model.TaskId" style="margin-right: 5px;" class="btn btn-warning float-right">Edit</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="NoOfHours" class="control-label"></label>
+                <input asp-for="NoOfHours" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="IsCompleted" class="control-label"></label>
+                <input asp-for="IsCompleted" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+</div>

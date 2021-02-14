@@ -1,0 +1,40 @@
+﻿@model IEnumerable<EmployeeSalaryCalculationSystem.MVC.ViewModels.EmployeesTotalHoursPerDayViewModel>
+
+@{
+    ViewData["Title"] = "View Employees TotalHours PerDay";
+}
+
+<h1>View Employees TotalHours PerDay</h1>
+
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalHours)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderByDescending(x => x.Date))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalHours)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

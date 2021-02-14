@@ -1,0 +1,61 @@
+﻿@model EmployeeSalaryCalculationSystem.MVC.ViewModels.EmployeeSalaryViewModel
+
+@{
+    ViewData["Title"] = "GetEmployeeSalary";
+}
+
+<h1>View Employee Salary</h1>
+<hr />
+<br />
+<form class="form-inline my-2 my-lg-0" asp-action="GetEmployeeSalary">
+    <label>Enter your access code</label><span>&nbsp; &nbsp;&nbsp;&nbsp;</span>
+    <input class="form-control mr-sm-2" name="accessCode" type="search" placeholder="Sri123abc" aria-label="search" required />
+    <input type="submit" value="View My Salary" class="btn btn-outline-success my-2 my-sm-0" />
+</form>
+<br />
+
+@if (Model != null)
+{
+
+    <table class="table" id="tblEmployeeSalaryInfo">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalNoOfHoursWorked)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.TotalNoOfHoursWorked)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Salary)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+}
